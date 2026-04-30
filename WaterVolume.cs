@@ -4,7 +4,7 @@ using MelonLoader;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-namespace mszbhop
+namespace AwesomeTerrain
 {
     [RegisterTypeInIl2Cpp]
     public class WaterVolume : MonoBehaviour

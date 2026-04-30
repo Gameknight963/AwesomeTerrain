@@ -2,9 +2,8 @@
 using MelonLoader;
 using UnityEngine;
 
-namespace mszbhop
+namespace AwesomeTerrain
 {
-
     public class Mod : MelonMod
     {
         public static GameObject Kiri;
