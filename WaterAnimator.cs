@@ -1,7 +1,7 @@
 ﻿using MelonLoader;
 using UnityEngine;
 
-namespace mszbhop
+namespace AwesomeTerrain
 {
     [RegisterTypeInIl2Cpp]
     public class WaterAnimator : MonoBehaviour

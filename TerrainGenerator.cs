@@ -3,7 +3,7 @@ using MelonLoader.Utils;
 using UnityEngine;
 using System.IO;
 
-namespace mszbhop
+namespace AwesomeTerrain
 {
     [RegisterTypeInIl2Cpp]
     public class TerrainGenerator : MonoBehaviour
@@ -113,7 +113,7 @@ namespace mszbhop
             waterMat.EnableKeyword("_ALPHABLEND_ON");
             waterMat.renderQueue = 3000;
             waterMat.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
-            byte[] normalBytes = File.ReadAllBytes(Path.Combine(MelonEnvironment.ModsDirectory, "mszbhop", "water.png"));
+            byte[] normalBytes = File.ReadAllBytes(Path.Combine(MelonEnvironment.ModsDirectory, "AwesomeTerrain", "water.png"));
             Texture2D normalTex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
             ImageConversion.LoadImage(normalTex, normalBytes);
             waterMat.SetTexture("_BumpMap", normalTex);
