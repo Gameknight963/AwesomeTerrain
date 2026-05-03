@@ -2,6 +2,7 @@
 using MelonLoader.Utils;
 using UnityEngine;
 using System.IO;
+using System;
 
 namespace AwesomeTerrain
 {
@@ -10,14 +11,15 @@ namespace AwesomeTerrain
     {
         private float _terrainYOffset;
 
-        private void Start()
+        public void Generate(int seed)
         {
             int resolution = 256;
             float size = 500f;
             float height = 60f;
 
-            float offsetX = Random.Range(0f, 9999f);
-            float offsetZ = Random.Range(0f, 9999f);
+            System.Random rng = new System.Random(seed);
+            float offsetX = (float)(rng.NextDouble() * 9999);
+            float offsetZ = (float)(rng.NextDouble() * 9999);
 
             Vector3[] vertices = new Vector3[(resolution + 1) * (resolution + 1)];
             Vector2[] uvs = new Vector2[vertices.Length];
@@ -73,7 +75,7 @@ namespace AwesomeTerrain
             mesh.uv = uvs;
             mesh.RecalculateNormals();
 
-            string texturePath = Path.Combine(MelonEnvironment.ModsDirectory, "mszbhop", "grass.png");
+            string texturePath = Path.Combine(MelonEnvironment.ModsDirectory, "AwesomeTerrain", "grass.png");
             byte[] bytes = File.ReadAllBytes(texturePath);
             Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
 
@@ -121,11 +123,12 @@ namespace AwesomeTerrain
             waterMat.mainTextureScale = new Vector2(20f, 20f);
             waterMat.SetTextureScale("_BumpMap", new Vector2(20f, 20f));
             waterObj.GetComponent<MeshRenderer>().material = waterMat;
-            Object.Destroy(waterObj.GetComponent<Collider>());
+            UnityEngine.Object.Destroy(waterObj.GetComponent<Collider>());
             waterObj.AddComponent<WaterAnimator>();
+            waterObj.AddComponent<WaterVolume>();
 
             waterBack.GetComponent<MeshRenderer>().material = waterMat;
-            Object.Destroy(waterBack.GetComponent<Collider>());
+            UnityEngine.Object.Destroy(waterBack.GetComponent<Collider>());
             waterBack.AddComponent<WaterAnimator>();
         }
     }
