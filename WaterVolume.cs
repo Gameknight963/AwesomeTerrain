@@ -1,5 +1,4 @@
-﻿using Il2Cpp;
-using Il2CppColorful;
+﻿using Il2CppColorful;
 using MelonLoader;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -13,7 +12,6 @@ namespace AwesomeTerrain
         private Color _defaultColor;
         private GaussianBlur _blur;
         private bool _underwater = false;
-        GameObject water;
 
         private PostProcessVolume _volume;
         private ColorGrading _colorGrading;
@@ -24,10 +22,8 @@ namespace AwesomeTerrain
             _defaultColor = _cam.backgroundColor;
             _blur = _cam.GetComponent<GaussianBlur>();
             _blur.enabled = false;
-
-            water = GameObject.Find("Water");
-
             GameObject volumeObj = new GameObject("UnderwaterVolume");
+            volumeObj.transform.parent = transform;
             volumeObj.layer = 31;
             _volume = volumeObj.AddComponent<PostProcessVolume>();
             _volume.isGlobal = true;
@@ -40,7 +36,8 @@ namespace AwesomeTerrain
 
         private void Update()
         {
-            bool submerged = _cam.transform.position.y < water.transform.position.y;
+            // gameObject should be Water
+            bool submerged = _cam.transform.position.y < gameObject.transform.position.y;
             if (submerged == _underwater) return;
             _underwater = submerged;
 
