@@ -7,11 +7,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: MelonInfo(typeof(Mod), "AwesomeTerrain", "2.0.0", "gameknight963")]
-[assembly: AssemblyTitle("mszbhop")]
+[assembly:MelonOptionalDependencies("Multiside.shared", "PhotonClient")]
+[assembly: AssemblyTitle("AwesomeTerrain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("mszbhop")]
+[assembly: AssemblyProduct("AwesomeTerrain")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
