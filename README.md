@@ -15,9 +15,10 @@ water
 - moves OOB protection down to -300
 - changes fog color to white
 - disables the door gameobject so you can leave
+- Fast Multiplayer terrain using seeds through Multiside. https://github.com/Gameknight963/Multiside
 
 ### planned features:
- - integration with [Multiside[(https://github.com/Gameknight963/Multiside) via seeded RNG
+ - all completed for now
 
 ### impossible unless the game switches back to mono:
  - baking terrain into Mita's AI on startup so she can finally escape
